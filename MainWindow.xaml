@@ -1,0 +1,55 @@
+﻿<Window x:Class="WPFFinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFFinalProject"
+        xmlns:star="clr-namespace:WPFFinalProject.MyControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Name="Stack1">
+            <Label Name="HeaderName"  HorizontalAlignment="Stretch"  FontSize="20" Height="40" FontStyle="Italic" Background="Gray"   >MOVIE STORE</Label>
+
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <Button>
+                    <Image Source="download.jpg" ></Image>
+                </Button>
+                <Label Content="Movie Name"></Label>
+                <TextBox></TextBox>
+                <Label Content="Genre"></Label>
+                <TextBox></TextBox>
+                <TabPanel>
+                    <Label Content="Rate"></Label>
+                    <Expander VerticalAlignment="Center" ExpandDirection="Right" >
+                        <TabPanel>
+                            <star:Star/>
+                        </TabPanel>
+                    </Expander>
+                </TabPanel>
+  
+                <Label></Label>
+                <Button Content="+ Watchlist " HorizontalAlignment="Left"></Button>
+                <Label></Label>
+            </StackPanel>
+
+
+        </Grid>
+
+    </Grid>
+</Window>
