@@ -6,49 +6,162 @@
         xmlns:local="clr-namespace:WPFFinalProject"
         xmlns:star="clr-namespace:WPFFinalProject.MyControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="DimGray">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle">
+            <Setter Property="Control.FontFamily" Value="Verdana" />
+            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid>
+                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" />
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF202E7E" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FF202E7E" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <StackPanel Name="Stack1">
-            <Label Name="HeaderName"  HorizontalAlignment="Stretch"  FontSize="20" Height="40" FontStyle="Italic" Background="Gray"   >MOVIE STORE</Label>
-
+        <StackPanel Name="Stack1" Background="Black" >
+            <Menu VerticalAlignment="Top" Foreground="White" Height="35" FontSize="20" FontFamily="Veranda" FontWeight="ExtraBold" >
+                <MenuItem Header="MENU">
+                    <MenuItem Header="My Watchlist" Background="Black" Foreground="White"></MenuItem >
+                    <MenuItem Header="My Wishlist" Background="Black" Foreground="White"></MenuItem>
+                    <MenuItem Header="My Bronlist" Background="Black" Foreground="White"></MenuItem>
+                </MenuItem>
+                <Menu.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="Black" Offset="0.528" />
+                        <GradientStop Color="#FF6A85D8" Offset="0.01" />
+                        <GradientStop Color="Black" Offset="1" />
+                        <GradientStop Color="#FF202E7E" Offset="1" />
+                    </LinearGradientBrush>
+                </Menu.Background>
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+            </Menu>
         </StackPanel>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            
-            <StackPanel Grid.Row="0" Grid.Column="0">
-                <Button>
-                    <Image Source="download.jpg" ></Image>
-                </Button>
-                <Label Content="Movie Name"></Label>
-                <TextBox></TextBox>
-                <Label Content="Genre"></Label>
-                <TextBox></TextBox>
+            <StackPanel Grid.Row="2" Grid.Column="1">
                 <TabPanel>
-                    <Label Content="Rate"></Label>
+                    <CheckBox></CheckBox>
+                <Image Height="200" Width="200">
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\harry.jpg" />
+                    </Image.Source>
+                </Image>
+                </TabPanel>
+                <Label Content="Movie Name" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox Text="{Binding MovieName}"></TextBox>
+                <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox Text="{Binding Genre}"></TextBox>
+                <Label></Label>
+                <TabPanel>
+                    <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold"  ToolTip="Rate movie"></Label>
                     <Expander VerticalAlignment="Center" ExpandDirection="Right" >
                         <TabPanel>
                             <star:Star/>
                         </TabPanel>
                     </Expander>
                 </TabPanel>
-  
                 <Label></Label>
-                <Button Content="+ Watchlist " HorizontalAlignment="Left"></Button>
-                <Label></Label>
+                <TabPanel>
+                    <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later"></Button>
+                    <Label></Label>
+                    <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place"/>
+                </TabPanel>
             </StackPanel>
-
-
+            <StackPanel Grid.Row="2" Grid.Column="3">
+                <TabPanel>
+                    <CheckBox ></CheckBox>
+                    <Image Height="200" Width="200">
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\sherlock.jpg" />
+                    </Image.Source>
+                </Image>
+                </TabPanel>
+                <Label Content="Movie Name" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox></TextBox>
+                <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox></TextBox>
+                <Label></Label>
+                <TabPanel>
+                    <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold"  ToolTip="Rate movie"></Label>
+                    <Expander VerticalAlignment="Center" ExpandDirection="Right" >
+                        <TabPanel>
+                            <star:Star/>
+                        </TabPanel>
+                    </Expander>
+                </TabPanel>
+                <Label></Label>
+                <TabPanel>
+                    <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Add movie to watch later" ></Button>
+                    <Label></Label>
+                    <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place"/>
+                </TabPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="5">
+                <TabPanel>
+                <CheckBox></CheckBox>
+                <Image Width="200" Height="200" >
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\bruce.jpg" />
+                    </Image.Source>
+                </Image>
+                </TabPanel>
+                <Label Content="Movie Name" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox></TextBox>
+                <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                <TextBox></TextBox>
+                <Label></Label>
+                <TabPanel>
+                    <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold" ToolTip="Rate movie"></Label>
+                    <Expander VerticalAlignment="Center" ExpandDirection="Right" >
+                        <TabPanel>
+                            <star:Star/>
+                        </TabPanel>
+                    </Expander>
+                </TabPanel>
+                <Label></Label>
+                <TabPanel>
+                    <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Add movie to watch later"></Button>
+                    <Label></Label>
+                    <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place"/>
+                </TabPanel>
+            </StackPanel>
         </Grid>
 
     </Grid>

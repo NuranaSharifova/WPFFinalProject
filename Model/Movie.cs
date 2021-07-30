@@ -9,6 +9,7 @@ namespace WPFFinalProject.Model
     class Movie
     {
         public string MovieName { get; set; }
-        public int MyProperty { get; set; }
+        public string Genre { get; set; }
+      
     }
 }
