@@ -34,7 +34,9 @@ namespace WPFFinalProject
             BookWindow bookWindow = new BookWindow();
             bookWindow.Show();
         }
-
+        public void Check() { 
+        
+        }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
      

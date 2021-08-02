@@ -13,6 +13,7 @@ namespace WPFFinalProject.Model
             MovieName = movieName;
             Genre = genre;
             Plot = plot;
+           
         }
 
         public string MovieName { get; set; }

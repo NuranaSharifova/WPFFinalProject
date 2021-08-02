@@ -10,15 +10,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.1*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Name="Stack1" Background="Black" >
             <Menu VerticalAlignment="Top" Foreground="White" Height="35" FontSize="20" FontFamily="Veranda" FontWeight="ExtraBold" >
                 <MenuItem Header="MENU" >
                     <MenuItem Header="My Watchlist" Background="Black" Foreground="White"></MenuItem >
-                    <MenuItem Header="My Wishlist" Background="Black" Foreground="White" Click="MenuItem_Click"></MenuItem>
-                    <MenuItem Header="My Bronlist" Background="Black" Foreground="White"></MenuItem>
+                    <MenuItem Header="My Wishlist" Background="Black" Foreground="White" Click="MenuItem_Click" Command="{Binding WishCommand}"></MenuItem>
                 </MenuItem>
                 <Menu.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -36,61 +37,101 @@
             </Menu>
         </StackPanel>
         <Grid Grid.Row="1">
-            <ListBox Grid.Row="2" Background="DimGray" BorderBrush="Black" SelectedIndex="{Binding Path=SelectedMovieIndex}" SelectedItem="{Binding Path=SelectedMovie}" ItemsSource="{Binding Path=Movies}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+            <TabPanel Grid.Column="1" Grid.Row="1">
+                <Image Height="200" Width="200">
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\harry.jpg" />
+                    </Image.Source>
+                </Image>
+            </TabPanel>
+            <TabPanel Grid.Column="3" >
+                <Image Height="200" Width="200" HorizontalAlignment="Left">
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\sherlock.jpg" />
+                    </Image.Source>
+                </Image>
+            </TabPanel>
+            <TabPanel Grid.Column="5" >
+                <Image Height="200" Width="200" HorizontalAlignment="left">
+                    <Image.Source>
+                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\bruce.jpg" />
+                    </Image.Source>
+                </Image>
+            </TabPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <ListBox Grid.Row="2" Background="DimGray" BorderBrush="Black" SelectedIndex="{Binding Path=SelectedMovieIndex}" SelectedItem="{Binding Path=SelectedMovie}" ItemsSource="{Binding Path=Movies}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate >
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.7*"/>
-                            <ColumnDefinition Width="9*"/>
-                            <ColumnDefinition Width="1.5*"/>
-                             <ColumnDefinition Width="9*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0">
-                                <Label/>
-                            </StackPanel>
-                        <StackPanel  Grid.Column="1">
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                             <TabPanel>
-                                <CheckBox></CheckBox>
-                                <Image Height="200" Width="200">
-                                    <!--<Image.Source>
-                                        <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\harry.jpg" />
-                                    </Image.Source>-->
-                                </Image>
-                            </TabPanel>
-                            <Label Content="Movie Name" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
-                                <TextBox Text="{Binding MovieName}" FontFamily="Verdana" FontWeight="ExtraBold"></TextBox>
-                            <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
-                                <TextBox Text="{Binding Genre}" FontFamily="Verdana" FontWeight="ExtraBold"></TextBox>
-                            <Label></Label>
-                            <TabPanel>
-                                <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold"  ToolTip="Rate movie"></Label>
-                                <Expander VerticalAlignment="Center" ExpandDirection="Right" >
-                                    <TabPanel>
-                                        <star:Star/>
-                                    </TabPanel>
-                                </Expander>
-                            </TabPanel>
-                            <Label></Label>
-                                <TabPanel>
-                                    <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
+                                <StackPanel Grid.Column="0">
+                                    <Label/>
+                                </StackPanel>
+                                <StackPanel  Grid.Column="1" Background="Transparent"  HorizontalAlignment="Center">
+                                    <Label Content="Movie Name" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                                    <TextBox Text="{Binding MovieName}" FontFamily="Verdana" FontWeight="ExtraBold" IsEnabled="False" ></TextBox>
+                                    <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
+                                    <TextBox Text="{Binding Genre}" FontFamily="Verdana" FontWeight="ExtraBold" IsEnabled="False"></TextBox>
                                     <Label></Label>
-                                    <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place" Click="Button_Click"/>
-                                </TabPanel>
-                                <Label/>
-                            </StackPanel>
-                            <StackPanel Grid.Column="2">
-                                <Label/>
-                            </StackPanel>
-                            <StackPanel Grid.Column="3">
-                                <Label Content="Plot" FontFamily="Verdana" FontWeight="ExtraBold" FontSize="30"/>
-                                <TextBlock Text="{Binding Plot}" TextWrapping="Wrap"  FontStretch="ExtraCondensed" FontFamily="Verdana">
-                                </TextBlock>
-                            </StackPanel>
-                        </Grid>
+                                    <TabPanel>
+                                        <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold"  ToolTip="Rate movie"></Label>
+                                        <Expander VerticalAlignment="Center" ExpandDirection="Right" IsExpanded="True">
+                                            <TabPanel >
+                                                <star:Star  />
+                                            </TabPanel>
+                                        </Expander>
+                                    </TabPanel>
+                                    <Label></Label>
+                                    <TabPanel>
+                                        <Label></Label>
+                                        <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place" Click="Button_Click"/>
+                                        <CheckBox x:Name="ch"/>
+                                    </TabPanel>
+                                    <Label/>
+                                </StackPanel>
+                                <StackPanel >
+                                    <Label/>
+                                </StackPanel>
+                                <Label></Label>
+                                <Label></Label>
+                                <Label></Label>
+                                <Label></Label>
+                                <Label></Label>
+                                <Label></Label>
+                            </TabPanel>
+                        </WrapPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
+            <Button  Grid.Column="3" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
+            <Button Grid.Column="5" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
         </Grid>
     </Grid>
 </Window>

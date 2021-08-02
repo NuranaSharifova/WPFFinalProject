@@ -14,17 +14,18 @@ namespace WPFFinalProject.ViewModel
 {
     public  class CinemaModelView : INotifyPropertyChanged
     {
+        
         private Movie selectedMovie;
         private int selectedMovieIndex;
-        private IService _fileService;
+        private IService _movieService;
         public ObservableCollection<Movie> Movies { get; set; }
-        public ObservableCollection<Movie> Wishlist { get; set; }
+        public List<Movie> Wishlist { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
 
         public CinemaModelView(IService fileService)
         {
-            _fileService = fileService;
+            _movieService = fileService;
             Movies = new ObservableCollection<Movie>
             {
                 new Movie("Harry Potter","Fantasy","This is the tale of Harry Potter (Daniel Radcliffe), an ordinary eleven-year-old boy" +
@@ -41,7 +42,7 @@ namespace WPFFinalProject.ViewModel
                 "God appears in human form and, endowing Bruce with divine powers, challenges Bruce to take on the big job to see if he can do it any better.")
 
             };
-            Wishlist = new ObservableCollection<Movie>();
+            Wishlist = new List<Movie>();
         }
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
@@ -76,19 +77,35 @@ namespace WPFFinalProject.ViewModel
 
                 return  (_addCommand = new Command(obj =>
                 {
-                   
-                    Wishlist.Add(selectedMovie);
-
-                    foreach (var item in Wishlist)
+                    Movie movie = null;
+                    movie = Wishlist.Find(x => x.MovieName == selectedMovie.MovieName);
+                    if (movie == null)
                     {
-                        MessageBox.Show($"{item}");
+                        Wishlist.Add(selectedMovie);
+                        MessageBox.Show("Movie has been added to your Wishlist succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                     
+                    }
+                    else {
+                        MessageBox.Show("Movie is already in your Wishlist", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }));
 
             }
+        }
+        private Command _wishcommand;
 
+        public Command WishCommand
+        {
 
+            get
+            {
 
+                return (_wishcommand = new Command(obj =>
+                {
+               
+                }));
+
+            }
         }
         public  void ShowWishlist()
         {

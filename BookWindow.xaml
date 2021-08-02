@@ -5,14 +5,201 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFFinalProject"
         mc:Ignorable="d"
-        Title="BookWindow" Height="450" Width="800">
+        Title="BookWindow" Height="450" Width="800" Background="Gray">
+
+  
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="350"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Canvas Name="MyCanvas" Margin="20 50 0 0"></Canvas>
-        
-        <Button Name="Save"  Content="Save" Grid.Row="1" Height="20" Width="100"></Button>
+        <Grid Grid.Row="0">
+            <Label Content="CINEMA HALL" HorizontalAlignment="Center" FontSize="20" FontFamily="Verdana" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Column="1" HorizontalAlignment="Center" >
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent" />
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="Transparent" IsChecked="False" BorderBrush="Transparent"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+                <CheckBox  Background="red"/>
+            </WrapPanel>
+            <Grid Grid.Column="2">
+                <StackPanel Margin="5">
+                    <Calendar Name="cldSample" SelectionMode="MultipleRange" SelectedDate="10.10.2013" />
+                    <Label Content="Selected date:" FontFamily="Verdana" FontWeight="Bold"></Label>
+                    <TextBox Text="{Binding ElementName=cldSample, Path=SelectedDate, StringFormat=d, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="3">
+                <StackPanel>
+                    <Label Content="Session Time" FontFamily="Verdana" FontWeight="Bold"></Label>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="10:00"></ComboBoxItem>
+                        <ComboBoxItem Content="13:50"></ComboBoxItem>
+                        <ComboBoxItem Content="17:00"></ComboBoxItem>
+                        <ComboBoxItem Content="19:00"></ComboBoxItem>
+                        <ComboBoxItem Content="22:00"></ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            
+            </Grid>
+        </Grid>
+
+        <Button Name="Save"  Content="Save" Grid.Row="4" Height="20" Width="100" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center"></Button>
     </Grid>
 </Window>
