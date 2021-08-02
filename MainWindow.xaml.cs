@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFFinalProject.Service;
+using WPFFinalProject.ViewModel;
 
 namespace WPFFinalProject
 {
@@ -23,8 +25,19 @@ namespace WPFFinalProject
         public MainWindow()
         {
             InitializeComponent();
-          
-              
+
+            DataContext = new CinemaModelView(new JsonFileService()); ;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BookWindow bookWindow = new BookWindow();
+            bookWindow.Show();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+     
         }
     }
 }
