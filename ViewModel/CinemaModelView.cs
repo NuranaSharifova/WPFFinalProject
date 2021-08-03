@@ -6,23 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using WPFFinalProject.Model;
 using WPFFinalProject.Model.Command;
 using WPFFinalProject.Service;
+using System.Windows.Media;
 
 namespace WPFFinalProject.ViewModel
 {
     public  class CinemaModelView : INotifyPropertyChanged
     {
-        
+        MainWindow Form = Application.Current.Windows[0] as MainWindow;
         private Movie selectedMovie;
         private int selectedMovieIndex;
         private IService _movieService;
         public ObservableCollection<Movie> Movies { get; set; }
         public List<Movie> Wishlist { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-
-
+   
         public CinemaModelView(IService fileService)
         {
             _movieService = fileService;
@@ -43,6 +44,7 @@ namespace WPFFinalProject.ViewModel
 
             };
             Wishlist = new List<Movie>();
+          
         }
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
@@ -67,8 +69,9 @@ namespace WPFFinalProject.ViewModel
                 OnPropertyChanged(nameof(SelectedMovie));
             }
         }
-        private Command _addCommand;
 
+        private Command _addCommand;
+      
         public Command AddCommand
         {
 
@@ -83,7 +86,7 @@ namespace WPFFinalProject.ViewModel
                     {
                         Wishlist.Add(selectedMovie);
                         MessageBox.Show("Movie has been added to your Wishlist succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                     
+                      
                     }
                     else {
                         MessageBox.Show("Movie is already in your Wishlist", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -100,13 +103,23 @@ namespace WPFFinalProject.ViewModel
             get
             {
 
+
+
                 return (_wishcommand = new Command(obj =>
                 {
-               
+                 
+                    if (Form.Checkbox[selectedMovieIndex].IsChecked == true && Form.Checkbox[selectedMovieIndex].Name.EndsWith(selectedMovieIndex.ToString()))
+                    {
+
+                        Form.Checkbox[selectedMovieIndex].Background = Brushes.Yellow;                     
+                    }
+
+
                 }));
 
             }
         }
+
         public  void ShowWishlist()
         {
 

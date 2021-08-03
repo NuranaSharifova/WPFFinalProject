@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,14 @@ namespace WPFFinalProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<CheckBox> Checkbox { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
             DataContext = new CinemaModelView(new JsonFileService()); ;
+            Checkbox = new ObservableCollection<CheckBox>() { ch0, ch1, ch2 };
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,12 +38,11 @@ namespace WPFFinalProject
             BookWindow bookWindow = new BookWindow();
             bookWindow.Show();
         }
-        public void Check() { 
-        
-        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
      
         }
+
     }
 }

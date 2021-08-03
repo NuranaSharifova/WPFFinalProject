@@ -47,21 +47,21 @@
                 <ColumnDefinition Width="0.1*"/>
             </Grid.ColumnDefinitions>
             <TabPanel Grid.Column="1" Grid.Row="1">
-                <Image Height="200" Width="200">
+                <Image >
                     <Image.Source>
                         <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\harry.jpg" />
                     </Image.Source>
                 </Image>
             </TabPanel>
             <TabPanel Grid.Column="3" >
-                <Image Height="200" Width="200" HorizontalAlignment="Left">
+                <Image  HorizontalAlignment="Left">
                     <Image.Source>
                         <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\sherlock.jpg" />
                     </Image.Source>
                 </Image>
             </TabPanel>
             <TabPanel Grid.Column="5" >
-                <Image Height="200" Width="200" HorizontalAlignment="left">
+                <Image  HorizontalAlignment="left">
                     <Image.Source>
                         <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\bruce.jpg" />
                     </Image.Source>
@@ -100,7 +100,6 @@
                                     <TabPanel>
                                         <Label></Label>
                                         <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place" Click="Button_Click"/>
-                                        <CheckBox x:Name="ch"/>
                                     </TabPanel>
                                     <Label/>
                                 </StackPanel>
@@ -129,9 +128,24 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
-            <Button  Grid.Column="3" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
-            <Button Grid.Column="5" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovie}"></Button>
+            <TabPanel  Grid.Column="1" Grid.Row="3">
+                <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovieIndex}" ></Button>
+                <Label></Label>
+                <CheckBox Name="ch0" HorizontalAlignment="Center" Background="Black"  Command="{ Binding WishCommand}" CommandParameter="{Binding SelectedMovie}"></CheckBox >
+                <Label Content="+Watched" FontFamily="Verdana" FontWeight="Bold" Background="Transparent" Foreground="Red" BorderBrush="Black"/>
+            </TabPanel>
+                <TabPanel  Grid.Column="3" Grid.Row="3">
+                <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovieIndex}" ></Button>
+                <Label/>
+                <CheckBox Name="ch1" Background="Black"  Command="{ Binding WishCommand}" CommandParameter="{Binding SelectedMovie}"></CheckBox >
+                <Label Content="+Watched" FontFamily="Verdana" FontWeight="Bold" Background="Transparent" Foreground="Red" BorderBrush="Black"/>
+            </TabPanel>
+            <TabPanel  Grid.Column="5" Grid.Row="3">
+                <Button Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovieIndex}" ></Button>
+                <Label/>
+                <CheckBox Name="ch2" Background="Black" Command="{ Binding WishCommand}" CommandParameter="{Binding SelectedMovie}"  ></CheckBox>
+                <Label Content="+Watched" FontFamily="Verdana" FontWeight="Bold" Background="Transparent" Foreground="Red" BorderBrush="black"/>
+            </TabPanel>
         </Grid>
     </Grid>
 </Window>
