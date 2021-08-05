@@ -11,6 +11,7 @@ using WPFFinalProject.Model;
 using WPFFinalProject.Model.Command;
 using WPFFinalProject.Service;
 using System.Windows.Media;
+using WPFFinalProject.View;
 
 namespace WPFFinalProject.ViewModel
 {
@@ -85,6 +86,8 @@ namespace WPFFinalProject.ViewModel
                     if (movie == null)
                     {
                         Wishlist.Add(selectedMovie);
+                        Form.Buttons[selectedMovieIndex].Content = " √ Wishlist   ";
+                     
                         MessageBox.Show("Movie has been added to your Wishlist succesfully", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                       
                     }
@@ -107,27 +110,22 @@ namespace WPFFinalProject.ViewModel
 
                 return (_wishcommand = new Command(obj =>
                 {
-                 
+
                     if (Form.Checkbox[selectedMovieIndex].IsChecked == true && Form.Checkbox[selectedMovieIndex].Name.EndsWith(selectedMovieIndex.ToString()))
                     {
 
-                        Form.Checkbox[selectedMovieIndex].Background = Brushes.Yellow;                     
+                        Form.Checkbox[selectedMovieIndex].Background = Brushes.Yellow;
                     }
+                    else {
 
+                        Form.Checkbox[selectedMovieIndex].Background = Brushes.Black;
+                    }
 
                 }));
 
             }
         }
 
-        public  void ShowWishlist()
-        {
-
-            foreach (var item in Wishlist)
-            {
-                MessageBox.Show($"{item}");
-            }
-        }
     }
 
 }

@@ -21,14 +21,12 @@ namespace WPFFinalProject.MyControl
     /// </summary>
     public partial class Star : UserControl
     {
-        private List<ToggleButton> stars;
+       
         public Star()
         {
             InitializeComponent();
-            stars = new List<ToggleButton>() {
+          
 
-          T1,T2,T3,T4,T5
-            };
         }
         private void T1_Click(object sender, RoutedEventArgs e)
         {

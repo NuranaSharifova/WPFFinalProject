@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using WPFFinalProject.Service;
 using WPFFinalProject.ViewModel;
 
-namespace WPFFinalProject
+namespace WPFFinalProject.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,13 +24,17 @@ namespace WPFFinalProject
     public partial class MainWindow : Window
     {
         public ObservableCollection<CheckBox> Checkbox { get; set; }
+        public ObservableCollection<Button> Buttons { get; set; }
+      
         public MainWindow()
         {
             InitializeComponent();
 
             DataContext = new CinemaModelView(new JsonFileService()); ;
             Checkbox = new ObservableCollection<CheckBox>() { ch0, ch1, ch2 };
-           
+            Buttons= new ObservableCollection<Button>() { b1,b2,b3 };
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
