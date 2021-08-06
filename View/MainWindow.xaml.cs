@@ -40,6 +40,7 @@ namespace WPFFinalProject.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             BookWindow bookWindow = new BookWindow();
+         
             bookWindow.Show();
         }
 
@@ -48,5 +49,6 @@ namespace WPFFinalProject.View
      
         }
 
+    
     }
 }

@@ -18,10 +18,13 @@ namespace WPFFinalProject.ViewModel
     public  class CinemaModelView : INotifyPropertyChanged
     {
         MainWindow Form = Application.Current.Windows[0] as MainWindow;
+     
         private Movie selectedMovie;
         private int selectedMovieIndex;
         private IService _movieService;
         public ObservableCollection<Movie> Movies { get; set; }
+
+       
         public List<Movie> Wishlist { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
    
@@ -45,6 +48,8 @@ namespace WPFFinalProject.ViewModel
 
             };
             Wishlist = new List<Movie>();
+
+
           
         }
         protected virtual void OnPropertyChanged(string propertyName = null)
@@ -115,16 +120,21 @@ namespace WPFFinalProject.ViewModel
                     {
 
                         Form.Checkbox[selectedMovieIndex].Background = Brushes.Yellow;
+                      
                     }
                     else {
 
                         Form.Checkbox[selectedMovieIndex].Background = Brushes.Black;
+                       
+                      
                     }
 
                 }));
 
             }
         }
+
+       
 
     }
 

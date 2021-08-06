@@ -45,7 +45,7 @@
                 </Image>
             </TabPanel>
             <TabPanel Grid.Column="3" >
-                <Image  HorizontalAlignment="Left">
+                <Image  HorizontalAlignment="Left" >
                     <Image.Source>
                         <BitmapImage  UriSource="C:\Users\nurane.sherifova\source\repos\WPFFinalProject\Images\sherlock.jpg" />
                     </Image.Source>
@@ -78,7 +78,7 @@
                                     <TextBox Text="{Binding MovieName}" FontFamily="Verdana" FontWeight="ExtraBold" IsEnabled="False" ></TextBox>
                                     <Label Content="Genre" FontFamily="Verdana" FontWeight="ExtraBold"></Label>
                                     <TextBox Text="{Binding Genre}" FontFamily="Verdana" FontWeight="ExtraBold" IsEnabled="False"></TextBox>
-                                    <Label></Label>
+                                    <Label ></Label>
                                     <TabPanel>
                                         <Label Content="Rate" FontFamily="Verdana" FontWeight="ExtraBold"  ToolTip="Rate movie"></Label>
                                         <Expander VerticalAlignment="Center" ExpandDirection="Right" IsExpanded="True">
@@ -87,7 +87,7 @@
                                             </TabPanel>
                                         </Expander>
                                     </TabPanel>
-                                    <Label></Label>
+                                    <Label ></Label>
                                     <TabPanel>
                                         <Label></Label>
                                         <Button Content="  Book  " HorizontalAlignment="Right" Style="{StaticResource ButtonStyle}" FontWeight="ExtraBold" ToolTip="Order place" Click="Button_Click"/>
@@ -97,7 +97,7 @@
                                 <StackPanel >
                                     <Label/>
                                 </StackPanel>
-                                <Label></Label>
+                                <Label ></Label>
                                 <Label></Label>
                                 <Label></Label>
                                 <Label></Label>
@@ -122,7 +122,7 @@
             <TabPanel  Grid.Column="1" Grid.Row="3">
                 <Button Name="b1" Content=" + Wishlist   " HorizontalAlignment="Left"  Style="{StaticResource ButtonStyle}" FontWeight="Heavy" ToolTip="Add movie to watch later" Command="{Binding AddCommand}" CommandParameter="{Binding SelectedMovieIndex}" ></Button>
                 <Label></Label>
-                <CheckBox Name="ch0" HorizontalAlignment="Center" Background="Black"  Command="{ Binding WishCommand}" CommandParameter="{Binding SelectedMovie}"></CheckBox >
+                <CheckBox Name="ch0" HorizontalAlignment="Center" Background="Black"  Command="{ Binding WishCommand}" CommandParameter="{Binding SelectedMovie}" ></CheckBox >
                 <Label Content="+Watched" FontFamily="Verdana" FontWeight="Bold" Background="Transparent" Foreground="Red" BorderBrush="Black"/>
             </TabPanel>
                 <TabPanel  Grid.Column="3" Grid.Row="3">
