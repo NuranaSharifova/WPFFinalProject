@@ -36,12 +36,12 @@ namespace WPFFinalProject.Model
                     CheckBox checbox = new CheckBox();             
                     checbox.Background = Brushes.Green;
                     checbox.Click += new RoutedEventHandler(this.GetPlace_Click);
-                  
+                    checbox.Name = "c"+place.ToString();
                     MyCanvas.Children.Add(checbox);
                     seat.Add(checbox);           
                     Canvas.SetLeft(checbox, i * (size + space));
                     Canvas.SetTop(checbox, j * (size + space));
-                  
+                    place++;
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace WPFFinalProject.Model
             {
 
                 (sender as CheckBox).Background = Brushes.Red;
-                (sender as CheckBox).Name = "test";
+          
                
             }
             else if ((sender as CheckBox).IsChecked == false)
